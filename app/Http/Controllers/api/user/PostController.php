@@ -120,7 +120,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         if ($post->user_id == $request->user()->id) {
-            $post->delete();
+            $post->destroy($post->id);
             $response = [
                 'message' => "The post is deleted successfully.",
             ];
